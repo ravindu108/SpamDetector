@@ -19,4 +19,5 @@ python main.py
 python -m http.server 8080
 ```
 
-+ Make sure your FastAPI server is running as well. 
++ Make sure your FastAPI server is running as well.
++ Open your preferred web browser and go to http://localhost:8080. You should see your web interface there.
