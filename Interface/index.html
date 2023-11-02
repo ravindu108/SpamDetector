@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Mail Detector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7f7f7;
+        }
+        .container {
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Spam Mail Detector</h1>
+        <input type="text" id="emailInput" placeholder="Enter email text">
+        <button onclick="checkEmail()">Check</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function checkEmail() {
+            const input = document.getElementById('emailInput').value;
+            const resultDiv = document.getElementById('result');
+            try {
+                const response = await fetch('http://127.0.0.1:8000/classify', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: input })
+                });
+                const result = await response.json();
+                resultDiv.innerHTML = result.isSpam ? 'This email is SPAM.' : 'This email is NOT spam.';
+            } catch (error) {
+                resultDiv.innerHTML = 'Error: Could not connect to the API.';
+            }
+        }
+    </script>
+</body>
+</html>
