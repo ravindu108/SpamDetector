@@ -14,7 +14,7 @@ python main.py
 
 # Web Interface Initiation
 + Navigate the directory which has index.html
-+ Start the server on a specific port
++ Start the server on a specific port (you can use whatever port you want, except port 8000)
 ```
 python -m http.server 8080
 ```
