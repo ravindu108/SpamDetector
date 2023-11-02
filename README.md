@@ -13,6 +13,7 @@ python main.py
 + Visit http://localhost:8000 to access the Swagger endpoint, which can be used to test the API.
 
 # Web Interface Initiation
++ Navigate the directory which has index.html
 + Start the server on a specific port
 ```
 python -m http.server 8080
