@@ -14,9 +14,8 @@ python main.py
 
 # Web Interface Initiation
 + Start the server on a specific port
----
-
+```
 python -m http.server 8080
----
+```
 
 + Make sure your FastAPI server is running as well. 
